@@ -1,8 +1,7 @@
 /***************************************************\
 * @file WindowConfig.h
-* @brief [fill out description]
-*
-* [fill out description]
+* @brief Header file for the WindowConfig struct,
+* for the creation of windows in the game.
 *
 * @author cadenv07
 * @date 10/22/26
@@ -10,8 +9,26 @@
 
 #pragma once
 
-namespace GameLibrary {
-    struct WindowConfig {
+#include <string>
+#include <glm/glm.hpp>
 
+namespace GameLibrary {
+    /**
+     * @struct WindowConfig
+     *
+     * @brief Contains config information for the creation of a window.
+     */
+    struct WindowConfig {
+        /** @brief The name to assign to the window title. */
+        std::string name_ = "Game Library Window";
+        /** @brief The dimensions of the window to create. */
+        glm::ivec2 size_ = glm::ivec2(800, 600);
+
+        /** @brief Whether to make the window fullscreen. */
+        bool fullscreen_ = false;
+
+        //GLFW values
+        /** @brief Whether to include the OpenGL API in the window. */
+        bool NO_API = true;
     };
 }

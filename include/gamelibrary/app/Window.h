@@ -13,8 +13,20 @@
 #include <gamelibrary/config/app/WindowConfig.h>
 
 namespace GameLibrary {
+    struct GLFWwindow;
+
+    /**
+     * @class Window
+     *
+     * @brief Stores basic information for adding a window to the game.
+     */
     class Window {
     public:
-        explicit Window()
+        explicit Window(const WindowConfig& config = {});
+    private:
+        GLFWwindow* window_ = nullptr;
+
+        std::string name_{};
+        glm::ivec2 size_{};
     };
 }

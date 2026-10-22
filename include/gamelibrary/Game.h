@@ -1,11 +1,18 @@
 /***************************************************\
 * @file Game.h
-* @brief [fill out description]
-*
-* [fill out description]
+* @brief The basic entry point for any game.
 *
 * @author cadenv07
 * @date 10/22/26
 \***************************************************/
 
 #pragma once
+
+namespace GameLibrary {
+    class Game {
+    public:
+
+    private:
+
+    };
+}
