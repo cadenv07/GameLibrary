@@ -1,0 +1,3 @@
+GameLibrary (v0.1)
+
+Basic C++ game library. Will eventually contain sub-libraries for rendering in Vulkan, physics, models, etc.
