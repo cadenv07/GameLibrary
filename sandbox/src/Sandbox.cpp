@@ -1,9 +1,10 @@
 #include <Sandbox.h>
 
 #include <gamelibrary/app/Window.h>
+#include <iostream>
 
 Sandbox::Sandbox(const GameLibrary::GameConfig &config) : Game(config) {
-    while (!glfwWindowShouldClose(window_.window())) {
+    while (!window_.shouldClose()) {
         glfwPollEvents();
     }
 }
