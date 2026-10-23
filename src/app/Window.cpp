@@ -19,4 +19,8 @@ namespace GameLibrary {
 
         window_ = glfwCreateWindow(size_.x, size_.y, name_.c_str(), nullptr, nullptr);
     }
+
+    GLFWwindow* Window::window() const {
+        return window_;
+    }
 }

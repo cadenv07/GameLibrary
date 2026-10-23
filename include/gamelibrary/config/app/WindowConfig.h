@@ -401,7 +401,7 @@ namespace GameLibrary {
          *
          * @note Default: ""
          */
-        const char* glfwCocoaFrameName;
+        const char* glfwCocoaFrameName = "";
         /**
          * @brief Specific to macOS. Specifies whether to in Automatic Graphics Switching.
          *
@@ -417,19 +417,19 @@ namespace GameLibrary {
          *
          * @note Default: ""
          */
-        const char* glfwWaylandAppId;
+        const char* glfwWaylandAppId = "";
         /**
          * @brief Specifies the desired ASCII encoded class part of the ICCCM WM_CLASS window property.
          *
          * @note Default: ""
          */
-        const char* glfwX11ClassName;
+        const char* glfwX11ClassName = "";
         /**
          * @brief Specifies the desired ASCII encoded instance part of the ICCCM WM_CLASS window property.
          *
          * @note Default: ""
          */
-        const char* glfwX11InstanceName;
+        const char* glfwX11InstanceName = "";
     };
 
     /**

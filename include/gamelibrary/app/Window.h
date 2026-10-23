@@ -26,6 +26,13 @@ namespace GameLibrary {
          * @param[in] config Configuration of the window to create.
          */
         explicit Window(const WindowConfig& config = {});
+
+        /**
+         * @brief Returns the current active GLFWwindow pointer.
+         *
+         * @return The pointer of the currently active window.
+         */
+        [[nodiscard]] GLFWwindow* window() const;
     private:
         GLFWwindow* window_ = nullptr;
 

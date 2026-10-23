@@ -13,5 +13,6 @@
 #include <gamelibrary/Game.h>
 
 class Sandbox final : public GameLibrary::Game {
-
+public:
+    explicit Sandbox(const GameLibrary::GameConfig& config = {});
 };

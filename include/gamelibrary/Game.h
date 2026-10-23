@@ -8,11 +8,15 @@
 
 #pragma once
 
+#include <gamelibrary/config/GameConfig.h>
+
+#include "app/Window.h"
+
 namespace GameLibrary {
     class Game {
     public:
-
-    private:
-
+        explicit Game(const GameConfig& config = {});
+    protected:
+        Window window_;
     };
 }
