@@ -14,6 +14,7 @@
 #include "display/Monitor.h"
 #include "display/Window.h"
 #include "glfw/GLFWInstance.h"
+#include <functional>
 
 namespace GameLibrary {
     /**
@@ -32,6 +33,11 @@ namespace GameLibrary {
          * @param[in] config A config object detailing how to construct the game instance.
          */
         explicit Game(const GameConfig& config = {});
+
+        /**
+         * @brief Tells the game to begin running.
+         */
+        void run();
     protected:
         /** @brief The application's GLFW context */
         std::unique_ptr<GLFWInstance> glfw_;
@@ -39,5 +45,9 @@ namespace GameLibrary {
         std::unique_ptr<Monitor> monitor_;
         /** @brief The main application window. */
         std::unique_ptr<Window> window_;
+
+        std::vector<std::function<void(double)>> updateFunctions_;
+        std::vector<std::function<void(double)>> renderFunctions_;
+        std::vector<std::function<void()>> inputFunctions_;
     };
 }

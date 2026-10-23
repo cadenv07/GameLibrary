@@ -370,9 +370,9 @@ namespace GameLibrary {
          *  - GLFW_OPENGL_ES_API
          *  - GLFW_NO_API
          *
-         * @note Default: GLFW_NO_API
+         * @note Default: GLFW_OPENGL_API
          */
-        GLint glfwClientApi = GLFW_NO_API;
+        GLint glfwClientApi = GLFW_OPENGL_API;
         /**
          * @brief Specifies which context creation API to use to create the context.
          *
