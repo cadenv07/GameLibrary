@@ -432,6 +432,13 @@ namespace GameLibrary {
         const char* glfwX11InstanceName;
     };
 
+    /**
+     * @brief Initializes all GLFW window hints for window creation.
+     *
+     * @param config The WindowConfig object to use for configuration.
+     *
+     * @pre Assumes that glfwInit() has already been run.
+     */
     inline void initializeHints(const WindowConfig& config) {
         glfwWindowHint(GLFW_RESIZABLE, config.glfwResizable);
         glfwWindowHint(GLFW_VISIBLE, config.glfwVisible);
