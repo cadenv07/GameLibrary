@@ -1,8 +1,7 @@
 /***************************************************\
 * @file Window.h
-* @brief [fill out description]
-*
-* [fill out description]
+* @brief Basic header file for storing information
+* related to creating windows for the game.
 *
 * @author cadenv07
 * @date 10/22/26
@@ -34,9 +33,12 @@ namespace GameLibrary {
          */
         [[nodiscard]] GLFWwindow* window() const;
     private:
+        /** @brief Pointer to the current GLFWwindow object. */
         GLFWwindow* window_ = nullptr;
 
+        /** @brief The stored name of the window. */
         std::string name_{};
+        /** @brief The stored size of the window. */
         glm::ivec2 size_{};
     };
 }
