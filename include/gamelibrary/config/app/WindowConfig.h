@@ -29,6 +29,90 @@ namespace GameLibrary {
         bool fullscreen_ = false;
 
         //
+        // GLFW Init Hints
+        //
+
+        /**
+         * @brief Specifies the platform to use for windowing and input.
+         *
+         * @details Possible values are:
+         *  - GLFW_ANY_PLATFORM
+         *  - GLFW_PLATFORM_WIN32
+         *  - GLFW_PLATFORM_COCOA
+         *  - GLFW_PLATFORM_WAYLAND
+         *  - GLFW_PLATFORM_X11
+         *  - GLFW_PLATFORM_NULL
+         *
+         * @note Default: GLFW_ANY_PLATFORM
+         */
+        GLint glfwPlatform = GLFW_ANY_PLATFORM;
+        /**
+         * @brief Specifies whether to also expose joystick hats as buttons.
+         *
+         * @details Possible values are:
+         *  - GLFW_TRUE
+         *  - GLFW_FALSE
+         *
+         * @note Default: GLFW_TRUE
+         */
+        GLint glfwJoystickHatButtons = GLFW_TRUE;
+        /**
+         * @brief Specifies the platform type (rendering backend) to request when using OpenGL ES and EGL.
+         *
+         * @details Possible values are:
+         *  - GLFW_ANGLE_PLATFORM_TYPE_NONE
+         *  - GLFW_ANGLE_PLATFORM_TYPE_OPENGL
+         *  - GLFW_ANGLE_PLATFORM_TYPE_OPENGLES
+         *  - GLFW_ANGLE_PLATFORM_TYPE_D3D9
+         *  - GLFW_ANGLE_PLATFORM_TYPE_D3D11
+         *  - GLFW_ANGLE_PLATFORM_TYPE_VULKAN
+         *  - GLFW_ANGLE_PLATFORM_TYPE_METAL
+         *
+         * @note Default: GLFW_ANGLE_PLATFORM_TYPE_NONE
+         */
+        GLint glfwAnglePlatformType = GLFW_ANGLE_PLATFORM_TYPE_NONE;
+        /**
+         * @brief Specific to macOS: Specifies whether to set the current directory to the application to the Contents/Resources subdirectory of the application's bundle.
+         *
+         * @details Possible values are:
+         *  - GLFW_TRUE
+         *  - GLFW_FALSE
+         *
+         * @note Default: GLFW_TRUE
+         */
+        GLint glfwCocoaChdirResources = GLFW_TRUE;
+        /**
+         * @brief Specific to macOS: Specifies whether to create the menu bar and dock icon when GLFW is initialized.
+         *
+         * @details Possible values are:
+         *  - GLFW_TRUE
+         *  - GLFW_FALSE
+         *
+         * @note Default: GLFW_TRUE
+         */
+        GLint glfwCocoaMenuBar = GLFW_TRUE;
+        /**
+         * @brief Specific to Wayland: Specifies whether to use libdecor for window decorations where available.
+         *
+         * @details Possible values are:
+         *  - GLFW_WAYLAND_PREFER_LIBDECOR
+         *  - GLFW_WAYLAND_DISABLE_LIBDECOR
+         *
+         * @note GLFW_WAYLAND_PREFER_LIBDECOR
+         */
+        GLint glfwWaylandLibDecor = GLFW_WAYLAND_PREFER_LIBDECOR;
+        /**
+         * @brief Specific to X11: Specifies whether to prever the VK_KHR_xcb_surface extension for creating Vulkan surfaces.
+         *
+         * @details Possible values are:
+         *  - GLFW_TRUE
+         *  - GLFW_FALSE
+         *
+         * @note Default: GLFW_TRUE
+         */
+        GLint glfwX11XCBVulkanSurface = GLFW_TRUE;
+
+        //
         // GLFW Window Hints
         //
 
@@ -433,13 +517,30 @@ namespace GameLibrary {
     };
 
     /**
+     * @brief Initializes all GLFW init hints for context creation.
+     *
+     * @param[in] config The WindowConfig object to use for configuration.
+     *
+     * @pre Assumes that glfwInit() has not already been run.
+     */
+    inline void glfwInitHints(const WindowConfig& config) {
+        glfwInitHint(GLFW_PLATFORM, config.glfwPlatform);
+        glfwInitHint(GLFW_JOYSTICK_HAT_BUTTONS, config.glfwJoystickHatButtons);
+        glfwInitHint(GLFW_ANGLE_PLATFORM_TYPE, config.glfwAnglePlatformType);
+        glfwInitHint(GLFW_COCOA_CHDIR_RESOURCES, config.glfwCocoaChdirResources);
+        glfwInitHint(GLFW_COCOA_MENUBAR, config.glfwCocoaMenuBar);
+        glfwInitHint(GLFW_WAYLAND_LIBDECOR, config.glfwWaylandLibDecor);
+        glfwInitHint(GLFW_X11_XCB_VULKAN_SURFACE, config.glfwX11XCBVulkanSurface);
+    }
+
+    /**
      * @brief Initializes all GLFW window hints for window creation.
      *
-     * @param config The WindowConfig object to use for configuration.
+     * @param[in] config The WindowConfig object to use for configuration.
      *
      * @pre Assumes that glfwInit() has already been run.
      */
-    inline void initializeHints(const WindowConfig& config) {
+    inline void glfwWindowHints(const WindowConfig& config) {
         glfwWindowHint(GLFW_RESIZABLE, config.glfwResizable);
         glfwWindowHint(GLFW_VISIBLE, config.glfwVisible);
         glfwWindowHint(GLFW_DECORATED, config.glfwDecorated);
