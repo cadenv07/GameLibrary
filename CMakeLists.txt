@@ -18,3 +18,5 @@ add_library(GameLibrary::GameLibrary ALIAS GameLibrary)
 target_include_directories(GameLibrary PUBLIC
         "${CMAKE_CURRENT_SOURCE_DIR}/include"
 )
+
+add_subdirectory(sandbox)
