@@ -10,7 +10,8 @@
 
 #pragma once
 
-#include <gamelibrary/config/app/WindowConfig.h>
+#include <gamelibrary/config/display/WindowConfig.h>
+#include <gamelibrary/config/glfw/GLFWConfig.h>
 
 namespace GameLibrary {
     /**
@@ -22,5 +23,7 @@ namespace GameLibrary {
     struct GameConfig {
         /** @brief Config for how to construct game windows. */
         WindowConfig windowConfig{};
+        /** @brief Config for how to construct the GLFW instance */
+        GLFWInstanceConfig instanceConfig{};
     };
 }

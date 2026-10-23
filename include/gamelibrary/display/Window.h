@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include <gamelibrary/config/app/WindowConfig.h>
+#include <gamelibrary/config/display/WindowConfig.h>
 #include <stdexcept>
 
 namespace GameLibrary {
@@ -24,13 +24,11 @@ namespace GameLibrary {
          * @brief Constructs a new GLFW window.
          *
          * @param[in] config Configuration of the window to create.
-         *
-         * @throws std::runtime_error If glfwInit() fails to initialize a GLFW context.
          */
         explicit Window(const WindowConfig& config = {});
 
         /**
-         * @brief Destroys the active window and terminates the GLFW context.
+         * @brief Destroys the active window.
          */
         ~Window();
 

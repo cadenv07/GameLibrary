@@ -1,22 +1,13 @@
-#include <gamelibrary/app/Window.h>
+#include <gamelibrary/display/Window.h>
 
 namespace GameLibrary {
     Window::Window(const WindowConfig& config) {
-        //Initialize init hints
-        glfwInitHints(config);
-
-        if (!glfwInit()) {
-            throw std::runtime_error(
-                "Failed to initialize GLFW"
-            );
-        }
-
         name_ = config.name_;
         size_.x = config.size_.x;
         size_.y = config.size_.y;
 
         //Initialize window hints
-        glfwWindowHints(config);
+        glfwWindowHints(config.glfwWindow);
 
         window_ = glfwCreateWindow(size_.x, size_.y, name_.c_str(), nullptr, nullptr);
 
@@ -26,7 +17,6 @@ namespace GameLibrary {
 
     Window::~Window() {
         glfwDestroyWindow(window_);
-        glfwTerminate();
     }
 
     void Window::requestClose() const {

@@ -10,7 +10,8 @@
 
 #include <gamelibrary/config/GameConfig.h>
 
-#include "app/Window.h"
+#include "display/Window.h"
+#include "glfw/GLFWInstance.h"
 
 namespace GameLibrary {
     /**
@@ -31,6 +32,7 @@ namespace GameLibrary {
         explicit Game(const GameConfig& config = {});
     protected:
         /** @brief The main application window. */
+        GLFWInstance glfw_;
         Window window_;
     };
 }

@@ -1,37 +1,24 @@
 /***************************************************\
-* @file WindowConfig.h
-* @brief Header file for the WindowConfig struct,
-* for the creation of windows in the game.
+* @file GLFWConfig.h
+* @brief [fill out description]
+*
+* [fill out description]
 *
 * @author cadenv07
-* @date 10/22/26
+* @date 10/23/26
 \***************************************************/
 
 #pragma once
 
-#include <string>
-#include <glm/glm.hpp>
 #include <GLFW/glfw3.h>
 
 namespace GameLibrary {
     /**
-     * @struct WindowConfig
+     * @struct GLFWInstanceConfig
      *
-     * @brief Contains config information for the creation of a window.
+     * @brief Configuration for creating the GLFW instance.
      */
-    struct WindowConfig {
-        /** @brief The name to assign to the window title. */
-        std::string name_ = "Game Library Window";
-        /** @brief The dimensions of the window to create. */
-        glm::ivec2 size_ = glm::ivec2(800, 600);
-
-        /** @brief Whether to make the window fullscreen. */
-        bool fullscreen_ = false;
-
-        //
-        // GLFW Init Hints
-        //
-
+    struct GLFWInstanceConfig {
         /**
          * @brief Specifies the platform to use for windowing and input.
          *
@@ -111,11 +98,23 @@ namespace GameLibrary {
          * @note Default: GLFW_TRUE
          */
         GLint glfwX11XCBVulkanSurface = GLFW_TRUE;
+    };
 
-        //
-        // GLFW Window Hints
-        //
+    /**
+     * @struct GLFWMonitorConfig
+     *
+     * @brief Configuration for creating the GLFW monitors.
+     */
+    struct GLFWMonitorConfig {
 
+    };
+
+    /**
+     * @struct GLFWWindowConfig
+     *
+     * @brief Configuration for creating the GLFW window.
+     */
+    struct GLFWWindowConfig {
         /**
          * @brief Specifies if the window can be resized by the user.
          *
@@ -523,7 +522,7 @@ namespace GameLibrary {
      *
      * @pre Assumes that glfwInit() has not already been run.
      */
-    inline void glfwInitHints(const WindowConfig& config) {
+    inline void glfwInitHints(const GLFWInstanceConfig& config) {
         glfwInitHint(GLFW_PLATFORM, config.glfwPlatform);
         glfwInitHint(GLFW_JOYSTICK_HAT_BUTTONS, config.glfwJoystickHatButtons);
         glfwInitHint(GLFW_ANGLE_PLATFORM_TYPE, config.glfwAnglePlatformType);
@@ -533,6 +532,8 @@ namespace GameLibrary {
         glfwInitHint(GLFW_X11_XCB_VULKAN_SURFACE, config.glfwX11XCBVulkanSurface);
     }
 
+
+
     /**
      * @brief Initializes all GLFW window hints for window creation.
      *
@@ -540,7 +541,7 @@ namespace GameLibrary {
      *
      * @pre Assumes that glfwInit() has already been run.
      */
-    inline void glfwWindowHints(const WindowConfig& config) {
+    inline void glfwWindowHints(const GLFWWindowConfig& config) {
         glfwWindowHint(GLFW_RESIZABLE, config.glfwResizable);
         glfwWindowHint(GLFW_VISIBLE, config.glfwVisible);
         glfwWindowHint(GLFW_DECORATED, config.glfwDecorated);
