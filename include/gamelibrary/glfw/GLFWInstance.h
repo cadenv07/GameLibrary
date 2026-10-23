@@ -1,8 +1,7 @@
 /***************************************************\
 * @file GLFWInstance.h
-* @brief [fill out description]
-*
-* [fill out description]
+* @brief Header file containing a class for the
+* creation and destruction of a GLFW instance.
 *
 * @author cadenv07
 * @date 10/23/26
@@ -29,7 +28,7 @@ namespace GameLibrary {
          *
          * @throws std::runtime_error If glfwInit() fails to initialize GLFW.
          */
-        explicit GLFWInstance(const GLFWInstanceConfig& config);
+        explicit GLFWInstance(const GLFWInstanceConfig& config = {});
 
         /**
          * @brief Destroys the active GLFW context.

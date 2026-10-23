@@ -1,8 +1,8 @@
 /***************************************************\
 * @file GLFWConfig.h
-* @brief [fill out description]
-*
-* [fill out description]
+* @brief Header file containing structs for the
+* configuration of various GLFW elements throughout
+* the program.
 *
 * @author cadenv07
 * @date 10/23/26
@@ -98,15 +98,6 @@ namespace GameLibrary {
          * @note Default: GLFW_TRUE
          */
         GLint glfwX11XCBVulkanSurface = GLFW_TRUE;
-    };
-
-    /**
-     * @struct GLFWMonitorConfig
-     *
-     * @brief Configuration for creating the GLFW monitors.
-     */
-    struct GLFWMonitorConfig {
-
     };
 
     /**

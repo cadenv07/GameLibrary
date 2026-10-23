@@ -12,6 +12,8 @@
 #include <gamelibrary/config/display/WindowConfig.h>
 #include <stdexcept>
 
+#include "Monitor.h"
+
 namespace GameLibrary {
     /**
      * @class Window
@@ -23,9 +25,10 @@ namespace GameLibrary {
         /**
          * @brief Constructs a new GLFW window.
          *
+         * @param[in] monitor
          * @param[in] config Configuration of the window to create.
          */
-        explicit Window(const WindowConfig& config = {});
+        explicit Window(const Monitor* monitor, const WindowConfig& config = {});
 
         /**
          * @brief Destroys the active window.
@@ -104,6 +107,8 @@ namespace GameLibrary {
     private:
         /** @brief Pointer to the current GLFWwindow object. */
         GLFWwindow* window_ = nullptr;
+        /** @brief The monitor object to use for windows */
+        const Monitor* monitor_ = nullptr;
 
         /** @brief The stored name of the window. */
         std::string name_{};

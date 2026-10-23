@@ -1,7 +1,7 @@
 #include <gamelibrary/display/Window.h>
 
 namespace GameLibrary {
-    Window::Window(const WindowConfig& config) {
+    Window::Window(const Monitor* monitor, const WindowConfig& config) : monitor_(monitor){
         name_ = config.name_;
         size_.x = config.size_.x;
         size_.y = config.size_.y;
@@ -9,7 +9,9 @@ namespace GameLibrary {
         //Initialize window hints
         glfwWindowHints(config.glfwWindow);
 
-        window_ = glfwCreateWindow(size_.x, size_.y, name_.c_str(), nullptr, nullptr);
+        GLFWmonitor* windowMonitor = nullptr;
+        if (config.fullscreen_) windowMonitor = monitor->getPrimaryMonitor();
+        window_ = glfwCreateWindow(size_.x, size_.y, name_.c_str(), windowMonitor, nullptr);
 
         glfwMakeContextCurrent(window_);
         glfwSwapInterval(1);

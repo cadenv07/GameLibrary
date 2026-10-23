@@ -21,9 +21,9 @@ namespace GameLibrary {
      * various parts of the game engine.
      */
     struct GameConfig {
-        /** @brief Config for how to construct game windows. */
-        WindowConfig windowConfig{};
         /** @brief Config for how to construct the GLFW instance */
         GLFWInstanceConfig instanceConfig{};
+        /** @brief Config for how to construct game windows. */
+        WindowConfig windowConfig{};
     };
 }
