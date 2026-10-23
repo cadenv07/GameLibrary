@@ -13,8 +13,6 @@
 #include <gamelibrary/config/app/WindowConfig.h>
 
 namespace GameLibrary {
-    struct GLFWwindow;
-
     /**
      * @class Window
      *
@@ -22,6 +20,11 @@ namespace GameLibrary {
      */
     class Window {
     public:
+        /**
+         * @brief Constructs a new GLFW window.
+         *
+         * @param[in] config Configuration of the window to create.
+         */
         explicit Window(const WindowConfig& config = {});
     private:
         GLFWwindow* window_ = nullptr;
