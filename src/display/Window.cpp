@@ -1,5 +1,3 @@
-#include <iostream>
-#include <GL/glew.h>
 #include <gamelibrary/display/Window.h>
 
 namespace GameLibrary {
@@ -17,13 +15,6 @@ namespace GameLibrary {
 
         glfwMakeContextCurrent(window_);
         glfwSwapInterval(1);
-
-        if (config.glfwWindow.glfwClientApi == GLFW_OPENGL_API) {
-            glewExperimental = GL_TRUE;
-            if (glewInit() != GLEW_OK) {
-                std::cerr << "Failed to initialize glew" << std::endl;
-            }
-        }
     }
 
     Window::~Window() {

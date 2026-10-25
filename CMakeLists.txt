@@ -5,7 +5,6 @@ set(CMAKE_CXX_STANDARD 20)
 
 find_package(glfw3 CONFIG REQUIRED)
 find_package(OpenGL REQUIRED)
-find_package(GLEW REQUIRED)
 find_package(glm REQUIRED)
 
 file(GLOB_RECURSE SOURCES
@@ -14,7 +13,7 @@ file(GLOB_RECURSE SOURCES
 )
 
 add_library(GameLibrary STATIC ${SOURCES})
-target_link_libraries(GameLibrary PUBLIC glfw glm::glm OpenGL::GL GLEW::GLEW)
+target_link_libraries(GameLibrary PUBLIC glfw glm::glm OpenGL::GL)
 add_library(GameLibrary::GameLibrary ALIAS GameLibrary)
 
 target_include_directories(GameLibrary PUBLIC
